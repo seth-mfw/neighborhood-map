@@ -1,0 +1,97 @@
+Neighborhood Map Project
+
+Time to build something from scratch. Here are the project details, in my own words. Hopefully this will help me organize how I will build the page.
+
+Build a web page that includes a map of my neighboorhood -or- somewhere I would like to visit.
+
+Add in Highlighted locations, third-party data about those locations, and ways to browse the content.
+
+Stuff I need / Requirements:
+
+Knockout Framework
+	- I need to get Knockout framework but it says I need Bower to install it. Bower needs 3 programs of its own.
+	- I need to learn what knockout does and how to use it in my maps
+	- Use Knockout to handle list, filter and info that can change
+	- DO NOT use knockout for map api, creating markers, tracking clicks, making the map, or refreshing the map
+
+Be able to make the map go fullscreen using the Google Maps API.
+ - Does this mean Google Maps API has directions on how to implement this feature? Will have to look into this more.
+ - "For sake of efficiency, the map API should be called only once"
+ 	- What the heck does this mean? Only call it once per time I load in a new neighborhood? Load it only one time regardless of size? Will look into this; maybe forums have a post on it.
+
+Display map markers identifying 5 locations that interest you. App should display those locations by default when app is loaded. Implement a list view of these locations.
+ - Load in a preset location with 5 markers of my personal choice.
+ - Also, I already know I'm now going to need a list.
+
+"Provide a filter option that uses an input field to filter both the list view and the map markers displayed by default on load. The list view and the markers should update accordingly. Providing a search function through a third-party API is not enough to meet specifications."
+ - Use a search bar to limit down options as they're typed in.
+
+"Add functionality using third-party APIs to provide information when a map marker or list view entry is clicked (ex. Yelp reviews, Wikipedia, Flickr images, etc). Note that StreetView and Places don't count as an additional 3rd party API because they are libraries included in the Google Maps API. If you need a refresher on making AJAX requests to third-party servers, check out our Intro to AJAX course. Please provide attribution to the data sources/APIs you use. For example if you are using Foursquare, indicate somewhere in your interface and in your README that you used Foursquare's API."
+ - OK, so it sounds like, for my list elements, there needs to be some functionality that allows us to see information through other API's such as yelp reviews or wikipedia or flickr images.
+ - Now we know we need a place to display the info from the other API's!
+ - Step 9 asks us to add the option to open up an infowindow
+
+Animate a map marker (and, according to step 9, open an infoWindow) when a location item is clicked on the list or in the map.
+
+The app's interface should be intuitive. Make stuff easy to find. Make it easy to know that we just clicked something. Let users know what is currently selected on the map and in the list.
+
+Error Handling: If the third party app doesn't load: Display a message OR keep that entire user interface intact.
+
+
+Summary of what we need:
+- The map (DONE!)
+- Predetermined neighboorhood for map to load (DONE! Colorado Springs)
+- list of predetermined locations in area (5), and a place to display them.
+- Section for 3rd party API info on locations, and on that note, the 3rd party api we want to use!
+- Animation for map marker: Perhaps flashing? Bouncing?
+
+--End of Notes of Understanding--
+
+--Notes of Building--
+
+I started watching some of the podcasts, and they're right! This is difficult to get started! Here are some of the questions that pop up:
+
+1. How do I want to design this?
+ - This can be very simple or incredibly complex. Lets keep it simple and focus on learning the JS.
+
+2. Once I get it designed, how do I want to even tackle the Javascript?
+
+3. How does Knockout fit into this?
+
+4. How does the Model-View-ViewModel fit into this?
+
+Lets start by reading the documentation of Knockout and getting familiar with what exactly it does. This should help with questions 3 and 4.
+-------------------------------------------------------------------
+6/8/16 Progress:
+ - I've been very fortunate that google has a lot of information on their maps API. I've been able to grab a key and get started with putting the necessary javascript files together to put the map on the page. Unfortunately, it loads with an error, but that is probably because the key is new. Not much time to make significant progress today, but some notes:
+  - There are more tutorials for customizing google maps with markers, and adding legends. Will experiment with that based on project requirements.
+  - Still need to look into knockout and how to make that apply to this project.
+--------------------
+6/10/16 Progress:
+ - Trying other solutions to get the google API to work and the console is starting to give me more information. It said the key was deleted so I've done some figuring out on that, now my referrer needs to be accepted so I tried putting my filename into the refferer. We'll see how that goes.
+  - Update 1: I've enabled a few other API's and removed referrers and I don't get any other errors, but the map still fails to load. No more errors in the console
+ - Today I also installed bower and knockout, but I'm not entirely sure that I'm linking everything correctly. 
+  - Update 1: Was able to install bower and knockout and link them properly. 
+ ----------------
+ 6/11/16 Progress:
+ - Finally got the map working. Here's how. I told myself "I'll style the map once I get it working." The problem was, it needed styling. So I styled it and it worked. 
+ - Reading more documentation on MVVM and KO. Separated out all the M, V, and VM that KO needs.
+ - Get coordinates for my location choices and create an "Observable Array" in KO.
+ ------------------
+ 6/12/16 progress
+ - The document was giving me the error "Ko is not defined". Tried messing around with KO to find out why it wasn't loading. I needed to change the order that the scripts loaded in; I have corrected this error.
+ - took out the data from the 'observable array' since it is the data and put the location array outside of the modelview function. Completed KO tutorials online and learned how to make the locations appear at the top of the map.
+
+Take into account the work I still need to do:
+1. Create Markers, animate them when clicked
+2. Get the search function to work. 
+3. Get the list items to correspond to markers
+4. Get a third party API to display information
+5. Error Handling
+6. Style to make the page responsive
+----------------------------------------------
+Picked project back up on 9/6/16 as I was going through job transition; New progress as new courses had been added:
+- Took the Google maps API course, which has helped add -some- clarity to what I need to do.
+- Nuked a lot of old code and decided to tackle one main piece at a time.
+- Started with the Map, got all markers in place, set animations and got windows working.
+- Next will target the listings. Plan on doing a dropdown.

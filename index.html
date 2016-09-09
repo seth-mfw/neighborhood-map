@@ -1,0 +1,27 @@
+<!Doctype HTML>
+<html>
+	<head>
+		<title>Colorado Springs</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<header><h1>Colorado Springs Recreation</h1></header>
+		<form>
+		<input content="hi">
+		</form>
+		<ul>
+			<li data-bind="value: title">Location 1</li>
+			<li data-bind="value: title">Location 2</li>
+			<li data-bind="value: title">Location 3</li>
+			<li data-bind="value: title">Location 4</li>
+			<li data-bind="value: title">Location 5</li>
+		</ul>
+		<div id='map'></div>
+		
+		<script async defer 
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXIM4Q_gQYhazYu0VLwElfphkIdFSqLgw&v=3&callback=initMap">
+		</script>
+		<script type='text/javascript' src='bower_components/knockout/dist/knockout.js'></script>
+		<script src='main.js'></script>
+	</body>
+</html>
