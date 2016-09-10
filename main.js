@@ -3,15 +3,32 @@ var map;
 //Markers array - part of view?
 var markers = [];
 //Locations array, part of Model for sure.
-var locations = ko.observableArray([
+var locations = [
 	    {title: "Olympic Training Center", location: {lat: 38.84, lng: -104.80}},
 	    {title: "Garden of the Gods", location: {lat: 38.87, lng: -104.88}},
 	    {title: "Palmer Park", location: {lat: 38.88, lng: -104.78}},
 	    {title: "The Manitou Incline", location: {lat: 38.85, lng: -104.93}},
 	    {title: "Colorado Springs Sports Center", location: {lat: 38.87, lng: -104.70}}
-	]);
+	];
+
+var SportsArea = function(data) {
+	this.title = data.title;
+};
+
+var MyViewModel = function() {
+
+	var self = this;
+	self.myName = ko.observable("Seth");
+
+	self.sportsAreas = ko.observableArray();
+	locations.forEach(function(location){
+		self.sportsAreas.push(new SportsArea(location));
+	});
+
+
+
+};
 //Function to initialize the map
-function MapViewModel() {}
 function initMap() {
 	//Map options
 	map = new google.maps.Map(document.getElementById('map'), {
@@ -73,7 +90,7 @@ function addContent(marker, infoWindow) {
 		infoWindow.marker = null;
 	}
 }
-
-ko.applyBindings(new MapViewModel());
+var myViewModel = new MyViewModel();
+ko.applyBindings(myViewModel);
  
 
